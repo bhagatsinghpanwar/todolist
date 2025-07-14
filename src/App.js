@@ -1,23 +1,35 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+
+  let [todostatus, settodostatus] = useState([]);
+
+
+  let SaveTodolist = (event)=>{
+
+    
+  let toname = event.target.toname.value;
+  // alert(toname);
+
+
+    event.preventDefault();
+
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <h> ToDo List</h>
+
+    <form onSubmit={SaveTodolist}>
+      <input type='text' name = "toname"></input>
+      <button >Save</button>
+    </form>
+
+
+
     </div>
   );
 }
