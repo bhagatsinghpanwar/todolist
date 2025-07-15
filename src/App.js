@@ -13,10 +13,25 @@ function App() {
   let toname = event.target.toname.value;
   // alert(toname);
 
+  if(!todostatus.includes(toname)){
+    let finaltodolist = [...todostatus, toname];
+    settodostatus(finaltodolist);
+    // alert("Task added successfully");
+
+  }
+  else{
+    alert("This task already exists");
+  }
+
 
     event.preventDefault();
 
   }
+   let list = todostatus.map((value, index)=>{
+    return(
+      <ToDolistItems value={value}  key={index} />
+    )
+   })
 
 
   return (
@@ -29,9 +44,27 @@ function App() {
     </form>
 
 
+      <div className='Outerdiv'>  
+          <ul>
+            {list}
+         
+    
+    </ul>
+    </div>
+
+
+     
 
     </div>
   );
 }
 
 export default App;
+
+
+function ToDolistItems({value}){
+  return(
+      <li>{value} <span>&times;</span></li>
+
+  ) 
+}

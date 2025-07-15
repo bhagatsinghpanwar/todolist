@@ -54,3 +54,31 @@ form input{
 form button {
  flex-basis: 20%;
 }
+
+.Outerdiv{
+ width: 1200px;
+ margin: auto;      
+}
+.Outerdiv ul {
+  margin: 0px;
+  margin-top: 20px;
+  
+  padding: 0px;
+  list-style: none;
+}
+
+.Outerdiv ul li{
+  color: white;
+  background-color: black;
+  position: relative;
+  font-size: 30px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.Outerdiv ul li span{
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  cursor: pointer;
+}
