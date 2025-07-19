@@ -29,7 +29,7 @@ function App() {
   }
    let list = todostatus.map((value, index)=>{
     return(
-      <ToDolistItems value={value}  key={index} />
+      <ToDolistItems value={value}  key={index} indexNumber={index} todostatus= {todostatus} settodostatus= {settodostatus}  />
     )
    })
 
@@ -62,9 +62,15 @@ function App() {
 export default App;
 
 
-function ToDolistItems({value}){
+function ToDolistItems({value,indexNumber, todostatus, settodostatus}){
+
+ let deleteRow = ()=>{
+  let finalData = todostatus.filter((v,i)=>i!=indexNumber)
+ settodostatus (finalData)
+ }
+
   return(
-      <li>{value} <span>&times;</span></li>
+      <li>{value} <span onClick={deleteRow}>&times;</span></li>
 
   ) 
 }
