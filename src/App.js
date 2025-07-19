@@ -63,14 +63,20 @@ export default App;
 
 
 function ToDolistItems({value,indexNumber, todostatus, settodostatus}){
+  let [status, setStatus] = useState(false)
 
  let deleteRow = ()=>{
   let finalData = todostatus.filter((v,i)=>i!=indexNumber)
  settodostatus (finalData)
  }
 
+ let checkStatus = ()=>{
+  setStatus(!status)
+
+ }
+
   return(
-      <li>{value} <span onClick={deleteRow}>&times;</span></li>
+      <li className={(status) ? 'completeTodo' : ''} onClick={checkStatus}>{indexNumber+1} {value} <span onClick={deleteRow}>&times;</span></li>  
 
   ) 
 }
